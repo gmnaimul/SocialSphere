@@ -1,0 +1,420 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+    --app-font-size: 15px;
+    --brand-start: 217 91% 60%;
+    --brand-end: 262 83% 67%;
+    --auth-mesh-start: 213 100% 97%;
+    --auth-mesh-mid: 210 40% 98%;
+    --auth-mesh-end: 213 100% 97%;
+    --auth-strength-fair: 43 96% 56%;
+    --auth-strength-strong: 142 71% 45%;
+    --profile-cover-start: 215 28% 17%;
+    --profile-cover-end: 217 91% 60%;
+    --post-card-lift-shadow: 222 30% 10%;
+    --reaction-love-bg: 0 100% 97%;
+    --reaction-love-fg: 0 72% 50%;
+    --reaction-love-border: 0 80% 88%;
+    --reaction-hate-bg: 214 32% 95%;
+    --reaction-hate-fg: 215 16% 35%;
+    --reaction-hate-border: 214 26% 82%;
+    --reaction-inactive-fg: 215 16% 47%;
+    --reaction-inactive-border: 214 32% 91%;
+    --toast-success: 142 71% 45%;
+    --toast-success-foreground: 0 0% 100%;
+    --toast-success-border: 142 58% 36%;
+    --toast-info: 217 91% 60%;
+    --toast-info-foreground: 0 0% 100%;
+    --toast-info-border: 217 82% 52%;
+    --toast-error: 0 84% 60%;
+    --toast-error-foreground: 0 0% 100%;
+    --toast-error-border: 0 72% 50%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 215 28% 17%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 215 28% 17%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217 33% 18%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 24%;
+    --input: 217 33% 18%;
+    --ring: 217 91% 60%;
+    --auth-mesh-start: 222 47% 11%;
+    --auth-mesh-mid: 215 28% 17%;
+    --auth-mesh-end: 222 47% 11%;
+    --post-card-lift-shadow: 222 60% 2%;
+    --reaction-love-bg: 0 48% 14%;
+    --reaction-love-fg: 0 85% 70%;
+    --reaction-love-border: 0 42% 28%;
+    --reaction-hate-bg: 217 26% 24%;
+    --reaction-hate-fg: 215 20% 72%;
+    --reaction-hate-border: 217 18% 34%;
+    --reaction-inactive-fg: 215 20% 65%;
+    --reaction-inactive-border: 217 33% 24%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    font-size: var(--app-font-size);
+  }
+
+  button {
+    transition: transform 150ms ease;
+  }
+
+  button:not(:disabled):hover {
+    transform: scale(1.02);
+  }
+
+  button:not(:disabled):active {
+    transform: scale(0.97);
+  }
+}
+
+@layer utilities {
+  .brand-gradient {
+    background-image: linear-gradient(135deg, hsl(var(--brand-start)), hsl(var(--brand-end)));
+  }
+
+  .auth-mesh-background {
+    background-image: radial-gradient(circle at 20% 20%, hsl(var(--primary) / 0.18), transparent 40%),
+      linear-gradient(135deg, hsl(var(--auth-mesh-start)), hsl(var(--auth-mesh-mid)), hsl(var(--auth-mesh-end)));
+    background-size: 160% 160%;
+    animation: auth-mesh-shift 12s ease-in-out infinite;
+  }
+
+  .auth-card {
+    @apply border border-border bg-card shadow-[0_4px_24px_hsl(222_47%_11%_/_0.12)];
+  }
+
+  .dark .auth-card {
+    background-color: hsl(0 0% 100% / 0.05);
+    border-color: hsl(0 0% 100% / 0.1);
+    backdrop-filter: blur(24px);
+  }
+
+  .auth-card-enter {
+    animation: auth-card-enter 400ms ease-out both;
+  }
+
+  .auth-cta-btn {
+    background-image: linear-gradient(135deg, hsl(var(--brand-start)), hsl(var(--brand-end)));
+    color: hsl(var(--primary-foreground));
+  }
+
+  .auth-strength-weak {
+    background-color: hsl(var(--destructive));
+  }
+
+  .auth-strength-fair {
+    background-color: hsl(var(--auth-strength-fair));
+  }
+
+  .auth-strength-strong {
+    background-color: hsl(var(--auth-strength-strong));
+  }
+
+  .profile-cover-fallback {
+    background-image: linear-gradient(135deg, hsl(var(--profile-cover-start)), hsl(var(--profile-cover-end)));
+  }
+
+  .status-online-dot {
+    background-color: hsl(var(--auth-strength-strong));
+  }
+
+  .post-card-lift:hover {
+    box-shadow: 0 4px 20px hsl(var(--post-card-lift-shadow) / 0.15);
+  }
+
+  .reaction-btn-active-love {
+    background-color: hsl(var(--reaction-love-bg));
+    color: hsl(var(--reaction-love-fg));
+    border-color: hsl(var(--reaction-love-border));
+  }
+
+  .reaction-btn-active-hate {
+    background-color: hsl(var(--reaction-hate-bg));
+    color: hsl(var(--reaction-hate-fg));
+    border-color: hsl(var(--reaction-hate-border));
+  }
+
+  .reaction-btn-inactive {
+    color: hsl(var(--reaction-inactive-fg));
+    border-color: hsl(var(--reaction-inactive-border));
+  }
+
+  .reaction-icon-bounce {
+    animation: reaction-bounce 200ms cubic-bezier(0.2, 0.9, 0.3, 1.2);
+  }
+
+  .animate-shimmer {
+    animation: shimmer-pulse 1.2s ease-in-out infinite;
+  }
+
+  .toast-success {
+    background-color: hsl(var(--toast-success));
+    border-color: hsl(var(--toast-success-border));
+    color: hsl(var(--toast-success-foreground));
+  }
+
+  .toast-info {
+    background-color: hsl(var(--toast-info));
+    border-color: hsl(var(--toast-info-border));
+    color: hsl(var(--toast-info-foreground));
+  }
+
+  .toast-error {
+    background-color: hsl(var(--toast-error));
+    border-color: hsl(var(--toast-error-border));
+    color: hsl(var(--toast-error-foreground));
+  }
+
+  .route-fade-in {
+    animation: route-fade-in 200ms ease;
+  }
+
+  .route-fade-out {
+    animation: route-fade-out 100ms ease;
+  }
+
+  .chat-message-enter-sent {
+    animation: chat-slide-in-sent 200ms ease-out;
+  }
+
+  .chat-message-enter-received {
+    animation: chat-slide-in-received 200ms ease-out;
+  }
+}
+
+@keyframes auth-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes auth-mesh-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes reaction-bounce {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.4);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes modal-content-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes modal-content-out {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+}
+
+@keyframes route-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes route-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes chat-slide-in-sent {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes chat-slide-in-received {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-modal-fade-in {
+  animation: modal-fade-in 200ms ease-out;
+}
+
+.animate-modal-fade-out {
+  animation: modal-fade-out 150ms ease-in;
+}
+
+.animate-modal-content-in {
+  animation: modal-content-in 200ms ease-out;
+}
+
+.animate-modal-content-out {
+  animation: modal-content-out 150ms ease-in;
+}
