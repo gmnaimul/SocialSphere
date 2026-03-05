@@ -194,7 +194,7 @@ const Profile = () => {
       const { data: friendIdsRows, error: friendIdsError } = await (supabase as any)
         .from("accepted_friends")
         .select("friend_id")
-        .eq("viewer_id", profileId);
+        .eq("user_id", profileId);
 
       if (friendIdsError) throw friendIdsError;
 
