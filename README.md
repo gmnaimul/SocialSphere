@@ -1,7 +1,14 @@
 # Welcome to the SocialSpehre
+A small social media project for fun 
+<img width="1919" height="824" alt="image" src="https://github.com/user-attachments/assets/1fba8ee3-1bea-4ac1-b6b4-67ee1522450f" />
 
-## Project info
+<img width="1366" height="823" alt="image" src="https://github.com/user-attachments/assets/040255fa-a585-4855-bafc-4d5d9f052c49" />
 
+<img width="1206" height="438" alt="image" src="https://github.com/user-attachments/assets/9d35c205-4b7f-4e08-99d5-e6b62cb84a49" />
+
+<img width="1717" height="825" alt="image" src="https://github.com/user-attachments/assets/8c920d60-5306-43cf-b83a-b40c435e3836" />
+
+## Project info: 
 **URL**: https:https://socialsphere-hub.netlify.app
 
 ## How can I edit this code?
